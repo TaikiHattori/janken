@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>じゃんけん</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet" />
+  <link rel="stylesheet" href="css/janken.css">
+</head>
+
+<body>
+  <main>
+    <button class="button">version.</button>
+
+    <!-- ↓javascriptグラデーション色が表示される長方形 -->
+    <div class="rectangle">
+
+      <div class="en1">
+
+        <div class="rectangle">
+
+          <div class="en2">
+
+            <div class="en3">
+
+
+
+
+              <div class="star_box">
+                <div class="star1"></div>
+                <div class="star2"></div>
+                <div class="star3"></div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+
+    </div>
+
+
+    <div class="cap_box">
+      <img src="images/cap.png" alt="">
+    </div>
+
+
+
+
+
+
+
+  </main>
+
+  <!-- ↓javascript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+    // ↓改造
+
+    Math.random();//0~1のランダム少数
+    Math.floor(Math.random() * 100);//0~100のランダムな整数
+    10 + Math.floor(Math.random() * 10);//10~20のランダムな整数
+
+    // 長方形
+    const rectangle = document.querySelector(".rectangle");
+
+    //   target[i].addEventListener("click", onClickButton, false);
+    // 
+    document.querySelector(".button").addEventListener("click", onClickButton, false);
+
+
+    // ボタンをクリックするたびに、長方形のグラデーション色を変える
+    function onClickButton() {
+
+      const randomHue = Math.trunc(Math.random() * 360);
+
+      const randomColorStart = `hsl(${randomHue},100%,50%)`;
+      const randomColorEnd = `hsl(${randomHue + 40},100%,50%)`;
+
+
+      // rectangle.style.setProperty("--start", randomColorStart);
+      // rectangle.style.setProperty("--end", randomColorEnd);
+
+
+      $(".rectangle").css("--start", randomColorStart);
+      $(".rectangle").css("--end", randomColorEnd);
+
+
+    }
+
+    // ↓yamamotosann追加
+    // for (let i = 0; i < rectangle.length; i++) {
+    //   target[i].addEventListener("click", onClickButton, false);
+    // }
+
+
+    // ↓以下メモまとめ
+
+    // <!-- ↓main直下で作ってたがぼつにした -->
+    //  < section >
+    // <h1>薬味合わせ</h1>
+    // </ >
+    // <section id="food">
+    //   <p>食べ物は？？</p>
+    // </section>
+    // <section id="match">
+    //   <p>合う？？</p>
+    // </section>
+    // <div class="take">
+    //   <p>筍</p>
+    // </div>
+    // <section>
+    //   <button id="shoga">生姜</button>
+    //   <button id="wasabi">わさび</button>
+    //   <button id="oshio">お塩</button>
+    // </section>
+
+    // ↓script内最初
+    // ↓生姜の話
+    // $("#shoga").on("click", function () {
+
+    //   const min = 0;
+    //   const max = 99;
+    //   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    //   console.log(randomNumber);
+
+
+    //   if (randomNumber === 0) {
+    //     $("#food").text("ご飯");
+    //     $("#match").text("意外と合う～！生姜炊き込みご飯🍚");
+
+
+
+    //   } else if (randomNumber <= 5) {
+    //     $("#food").text("そうめん");
+    //     $("#match").text("合う～！");
+
+    //   } else if (randomNumber <= 20) {
+    //     $("#food").text("豚肉");
+    //     $("#match").text("合う");
+
+    //   } else if (randomNumber <= 49) {
+    //     $("#food").text("食パン");
+    //     $("#match").text("合わん");
+
+    //   } else if (randomNumber <= 99) {
+    //     $("#food").text("チョコ");
+    //     $("#match").text("絶対合わん");
+    //   }
+
+
+    // });
+
+
+
+
+
+    // // ↓わさびの話
+
+    // $("#wasabi").on("click", function () {
+
+    //   const min = 0;
+    //   const max = 99;
+    //   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   // ↑わさびはわさびで必要
+
+
+    //   if (randomNumber === 0) {
+    //     // alert("大吉");
+    //     $("#food").text("親子丼");
+    //     $("#match").text("意外と合う～！");
+    //   } else if (randomNumber <= 5) {
+    //     // alert("中吉");
+    //     $("#food").text("焼肉");
+    //     $("#match").text("合う～！通やね～");
+    //   } else if (randomNumber <= 20) {
+    //     // alert("小吉");
+    //     $("#food").text("そうめん");
+    //     $("#match").text("合う");
+    //   } else if (randomNumber <= 49) {
+    //     // alert("凶");
+    //     $("#food").text("大学いも");
+    //     $("#match").text("合わん。多分。");
+    //   } else if (randomNumber <= 99) {
+    //     // alert("大凶")
+    //     $("#food").text("プリン");
+    //     $("#match").text("絶対合わん。想像もしたくない。");
+    //   }
+
+
+    // });
+
+
+
+
+    // // ↓お塩の話
+
+    // $("#oshio").on("click", function () {
+
+    //   const min = 0;
+    //   const max = 99;
+    //   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    //   console.log(randomNumber);
+
+    //   // ↑意味：０～９９の整数値をランダムに一つ出して
+    //   // ↑お塩はお塩で必要
+
+
+    //   if (randomNumber === 0) {
+    //     // alert("大吉");
+    //     $("#food").text("ケーキ");
+    //     $("#match").text("意外と合う～！");
+    //   } else if (randomNumber <= 5) {
+    //     // alert("中吉");
+    //     $("#food").text("焼き鳥");
+    //     $("#match").text("合う～");
+    //   } else if (randomNumber <= 20) {
+    //     // alert("小吉");
+    //     $("#food").text("スイカ");
+    //     $("#match").text("合う");
+    //   } else if (randomNumber <= 49) {
+    //     // alert("凶");
+    //     $("#food").text("？？？");
+    //     $("#match").text("合わん");
+    //   } else if (randomNumber <= 99) {
+    //     // alert("大凶")
+    //     $("#food").text("？？？");
+    //     $("#match").text("絶対合わん");
+    //   }
+    // });
+
+
+    // ↑script内
+
+
+
+
+
+
+    // ↓ const rectangle = document.querySelector(".rectangle");の下にじっちゃんが打ってくれたやつ
+
+
+    // document.addEventListerer("DOMContentLoaded", function () {
+    //   function onClickButton() {
+
+    //     const randomHue = Math.trunc(Math.random() * 360);
+
+    //     const randomColorStart = `hsl(${randomHue},100%,50%)`;
+    //     const randomColorEnd = `hsl(${randomHue + 40},100%,50%)`;
+
+
+    //     rectangle.style.setProperty("--start", randomColorStart);
+    //     rectangle.style.setProperty("--end", randomColorEnd);
+
+
+    //   }
+
+    // const rectangles = document.getElementsByClassName("rectangle");
+    //  for (let i = 0; i < rectangles.length; i++) {
+    //     rectangle[i].addEventListener("click", onClickButton, false);
+    //  }
+
+
+    // ↑ document.querySelector(".button").addEventListener("click", onClickButton);の上にじっちゃんが打ってくれたやつ
+
+
+
+  </script>
+
+</body>
+
+</html>
