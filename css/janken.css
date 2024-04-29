@@ -147,8 +147,8 @@ img {
   background: red;
   /* ↑colorでは反応せず */
   position: absolute;
-  margin-left: -471px;
-  margin-top: -144px;
+  margin-left: 9px;
+  margin-top: 9px;
   z-index: 4;
 }
 
@@ -171,10 +171,123 @@ img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background:red;
+  background: red;
   /* ↑colorでは反応せず */
   position: absolute;
   margin-left: 15px;
   margin-top: 15px;
   z-index: 6;
+}
+
+
+
+
+
+
+
+/* ↓ジャンケン再改造 */
+.tokei {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+
+
+.clock {
+  border-radius: 50%;
+  border: 3px solid black;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+
+
+.lineHour {
+  width: 10px;
+  height: 150px;
+  background: black;
+  position: absolute;
+  top: 50px;
+  left: 195px;
+  transform-origin: bottom;
+}
+
+
+.lineMin {
+  width: 4px;
+  height: 200px;
+  background: black;
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  transform-origin: bottom;
+}
+
+
+
+
+.lineSec {
+  width: 2px;
+  height: 200px;
+  background: black;
+  position: absolute;
+  top: 0px;
+  left: 200px;
+  transform-origin: bottom;
+}
+
+
+
+/* .Dr {
+  width: 1000px;
+  height: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(0, 0, 0, .9)
+} */
+
+
+
+
+
+/* @charset "utf-8"; */
+
+/*========= レイアウトのためのCSS ===============*/
+
+#wrapper p {
+  padding: 300px 0;
+  text-align: center;
+}
+
+/*========= waveを描画するエリア設定 ===============*/
+
+
+.wave {
+  position: relative;
+}
+
+.wave canvas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+
+/* ボタン押すと円が緑色になる */
+
+input {
+  width: 80px;
+  height: 40px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  cursor: pointer;
 }
